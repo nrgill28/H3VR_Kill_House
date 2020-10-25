@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace H3VR_Kill_House.ScriptableObjects
 {
+    [CreateAssetMenu]
     public class KillHouseStage : ScriptableObject
     {
         [Tooltip("A list of targets in this stage")]

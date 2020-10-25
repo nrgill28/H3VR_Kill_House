@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using H3VR_Kill_House.ScriptableObjects;
 using UnityEngine;
-using WurstMod.MappingComponents;
-using WurstMod.UnityEditor;
 
 namespace H3VR_Kill_House.MappingComponents
 {
-    public class KillHouseManager : ComponentProxy
+    public class KillHouseManager : MonoBehaviour
     {
         public static KillHouseManager Instance;
 
@@ -21,7 +17,6 @@ namespace H3VR_Kill_House.MappingComponents
         public KillHouseDoor StartRoomExitDoor;
 
         // Audio clip for countdown
-        public AudioSource CountdownSource;
         public float CountdownLength;
         
         private int _currentStage;
@@ -95,7 +90,6 @@ namespace H3VR_Kill_House.MappingComponents
         public void StartCountdown()
         {
             _currentStage = -1;
-            CountdownSource.Play();
             StartCoroutine(Countdown());
             StartRoomEntranceDoor.CloseEvent.Invoke();
         }
@@ -130,11 +124,6 @@ namespace H3VR_Kill_House.MappingComponents
             _pointsTotal += target.Points;
             _stageTargets.Remove(target);
             if (_stageTargets.Count == 0) NextStage();
-        }
-
-        public override void OnExport(ExportErrors err)
-        {
-            if (Stages.Any(s => s == null)) err.AddError("No Kill House State in the manager can be null");
         }
     }
 }

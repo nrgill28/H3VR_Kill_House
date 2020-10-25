@@ -50,9 +50,7 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Classes\RotatableObject.cs" />
-        <Compile Include="KillHouseSceneExporter.cs" />
-        <Compile Include="KIllHouseSceneLoader.cs" />
+        <Compile Include="Other\RotatableObject.cs" />
         <Compile Include="MappingComponents\KillHouseDoor.cs" />
         <Compile Include="MappingComponents\KillHouseManager.cs" />
         <Compile Include="MappingComponents\KillHouseTarget.cs" />
