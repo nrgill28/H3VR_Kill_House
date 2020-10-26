@@ -1,12 +1,15 @@
-﻿using System.Collections;
+﻿using H3VR_Kill_House.Classes;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace H3VR_Kill_House.MappingComponents
 {
+    [RequireComponent(typeof(MovableObject))]
     public class KillHouseDoor : MonoBehaviour
     {
-        public UnityEvent OpenEvent;
-        public UnityEvent CloseEvent;
+        public MovableObject Move;
+
+        public void Open() => Move.MoveTo(1f);
+
+        public void Close() => Move.MoveTo(0f);
     }
 }

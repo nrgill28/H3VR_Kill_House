@@ -33,7 +33,7 @@
     </PropertyGroup>
     <ItemGroup>
         <Reference Include="Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>Libs\Assembly-CSharp.dll</HintPath>
+          <HintPath>A:\Games\SteamLibrary\steamapps\common\H3VR\h3vr_Data\Managed\Assembly-CSharp.dll</HintPath>
         </Reference>
         <Reference Include="System" />
         <Reference Include="System.Core" />
@@ -42,28 +42,24 @@
         <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
           <HintPath>Libs\UnityEngine.dll</HintPath>
         </Reference>
-        <Reference Include="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>Libs\UnityEngine.UI.dll</HintPath>
-        </Reference>
         <Reference Include="WurstMod, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>Libs\WurstMod.dll</HintPath>
+          <HintPath>A:\Games\SteamLibrary\steamapps\common\H3VR\BepInEx\plugins\WurstMod.dll</HintPath>
         </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Other\RotatableObject.cs" />
+        <Compile Include="MappingComponents\KillHouseStage.cs" />
+        <Compile Include="Other\MovableObject.cs" />
         <Compile Include="MappingComponents\KillHouseDoor.cs" />
         <Compile Include="MappingComponents\KillHouseManager.cs" />
         <Compile Include="MappingComponents\KillHouseTarget.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="ScriptableObjects\KillHouseStage.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="ScriptableObjects" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-         Other similar extension points exist, see Microsoft.Common.targets.
-    <Target Name="BeforeBuild">
-    </Target>
-    <Target Name="AfterBuild">
-    </Target>
-    -->
+    <PropertyGroup>
+        <PostBuildEvent>$(SolutionDir)pdb2mdb.exe $(TargetPath)</PostBuildEvent>
+    </PropertyGroup>
 
 </Project>

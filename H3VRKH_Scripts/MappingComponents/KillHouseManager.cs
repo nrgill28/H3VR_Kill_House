@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using H3VR_Kill_House.ScriptableObjects;
 using UnityEngine;
 
 namespace H3VR_Kill_House.MappingComponents
@@ -33,31 +32,33 @@ namespace H3VR_Kill_House.MappingComponents
         private void Start()
         {
             _stageTargets = new List<KillHouseTarget>();
-            
             // Reset all the stages
             foreach (var stage in Stages)
             {
                 foreach (var target in stage.Targets) target.ResetTarget();
-                if (stage.ProgressionDoor) stage.ProgressionDoor.CloseEvent.Invoke();
+                if (stage.ProgressionDoor) stage.ProgressionDoor.Close();
             }
             
             // Close the start room exit door and open the start room entrance door
-            StartRoomExitDoor.CloseEvent.Invoke();
-            StartRoomEntranceDoor.OpenEvent.Invoke();
+            StartRoomExitDoor.Close();
+            StartRoomEntranceDoor.Open();
 
             _currentStage = -1;
         }
 
         private void NextStage()
         {
-            // Reset all targets in the current stage
-            foreach (var target in Stages[_currentStage].Targets) target.ResetTarget();
-            // If the current stage had a progression door, open it
-            if (_currentStage >= 0 && Stages[_currentStage].ProgressionDoor)
-                Stages[_currentStage].ProgressionDoor.OpenEvent.Invoke();
-            
-            
-            
+            // If we're not going into the first stage
+            if (_currentStage >= 0)
+            {
+                // Reset all targets in the current stage
+                foreach (var target in Stages[_currentStage].Targets) target.ResetTarget();
+                // If the current stage had a progression door, open it
+                if (Stages[_currentStage].ProgressionDoor)
+                    Stages[_currentStage].ProgressionDoor.Open();
+            }
+
+
             // Advance the stage
             _currentStage++;
             
@@ -83,7 +84,7 @@ namespace H3VR_Kill_House.MappingComponents
         private void StartGame()
         {
             // Open the door and start the first stage
-            StartRoomExitDoor.OpenEvent.Invoke();
+            StartRoomExitDoor.Open();
             NextStage();
         }
 
@@ -91,7 +92,7 @@ namespace H3VR_Kill_House.MappingComponents
         {
             _currentStage = -1;
             StartCoroutine(Countdown());
-            StartRoomEntranceDoor.CloseEvent.Invoke();
+            StartRoomEntranceDoor.Close();
         }
 
         private void Update()
