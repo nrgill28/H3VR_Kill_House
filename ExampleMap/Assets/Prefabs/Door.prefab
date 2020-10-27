@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4126458807802422}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: RotAxis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   - component: {fileID: 4932968090582216}
   - component: {fileID: 114919355548711280}
   - component: {fileID: 114958189725667854}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 33791067035960994}
   - component: {fileID: 65688025461686310}
   - component: {fileID: 23913350200600258}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,35 +179,4 @@ MonoBehaviour:
   m_Script: {fileID: -1683632270, guid: 056b7df8ea814154b8e2124f249ec925, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OpenEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114919355548711280}
-        m_MethodName: MoveTo
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 1
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  CloseEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114919355548711280}
-        m_MethodName: MoveTo
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+  Move: {fileID: 114919355548711280}

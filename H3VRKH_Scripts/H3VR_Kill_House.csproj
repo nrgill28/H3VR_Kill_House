@@ -48,14 +48,12 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="MappingComponents\KillHouseStage.cs" />
+        <Compile Include="MappingComponents\KillHouseStartButton.cs" />
         <Compile Include="Other\MovableObject.cs" />
         <Compile Include="MappingComponents\KillHouseDoor.cs" />
         <Compile Include="MappingComponents\KillHouseManager.cs" />
         <Compile Include="MappingComponents\KillHouseTarget.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-    </ItemGroup>
-    <ItemGroup>
-      <Folder Include="ScriptableObjects" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <PropertyGroup>

@@ -36,7 +36,7 @@ GameObject:
   - component: {fileID: 4123169953619136}
   - component: {fileID: 54523832691776052}
   - component: {fileID: 114158592199945876}
-  - component: {fileID: 114168646447408868}
+  - component: {fileID: 114529762902705620}
   m_Layer: 19
   m_Name: Floor Target
   m_TagString: Untagged
@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 65698637042168964}
   - component: {fileID: 23658069570539580}
   - component: {fileID: 114014706142356454}
+  - component: {fileID: 114992371098130546}
   m_Layer: 19
   m_Name: Cube
   m_TagString: Untagged
@@ -69,8 +70,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1771954045808312}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -1.8699951, y: 0, z: 3.1100006}
+  m_LocalRotation: {x: -0, y: 0.43092063, z: -0, w: 0.9023898}
+  m_LocalPosition: {x: -5.593994, y: 0, z: 5.3899994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4740785275599398}
@@ -189,9 +190,9 @@ MonoBehaviour:
   shotEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1771954045808312}
-        m_MethodName: SendMessage
-        m_Mode: 5
+      - m_Target: {fileID: 114529762902705620}
+        m_MethodName: TargetHit
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -217,7 +218,7 @@ MonoBehaviour:
   EndRotation: {x: 0, y: 0, z: 90}
   EndPosition: {x: 0, y: 0, z: 0}
   RotationTime: 0.2
---- !u!114 &114168646447408868
+--- !u!114 &114529762902705620
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -229,3 +230,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Points: 0
+  Rotate: {fileID: 114158592199945876}
+--- !u!114 &114992371098130546
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1948574907214172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -597213029, guid: 698801bd5119dbb459918170c0cf733b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  def: -582586173
+  matDef: 666790754

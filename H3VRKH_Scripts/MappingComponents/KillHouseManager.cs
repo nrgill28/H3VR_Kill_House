@@ -35,6 +35,7 @@ namespace H3VR_Kill_House.MappingComponents
             // Reset all the stages
             foreach (var stage in Stages)
             {
+                Debug.Log("Resetting stage; " + stage.Targets.Length + " targets");
                 foreach (var target in stage.Targets) target.ResetTarget();
                 if (stage.ProgressionDoor) stage.ProgressionDoor.Close();
             }
@@ -90,7 +91,7 @@ namespace H3VR_Kill_House.MappingComponents
 
         public void StartCountdown()
         {
-            _currentStage = -1;
+            if (_currentStage != -1) return;
             StartCoroutine(Countdown());
             StartRoomEntranceDoor.Close();
         }
@@ -105,7 +106,7 @@ namespace H3VR_Kill_House.MappingComponents
             _stageTimer += Time.deltaTime;
                 
             // If we've exceeded the time limit on the current stage, continue to the next regardless of targets
-            if (_stageTimer > Stages[_currentStage].TimeLimit) NextStage();
+            if (Stages[_currentStage].TimeLimit > 0 && _stageTimer > Stages[_currentStage].TimeLimit) NextStage();
         }
 
         private IEnumerator Countdown()

@@ -33,8 +33,8 @@ namespace H3VR_Kill_House.Classes
             while (time < t)
             {
                 time += Time.deltaTime;
-                MoveObject.localRotation = Quaternion.Euler(Vector3.Slerp(startRot, endRot, time));
-                MoveObject.localPosition = Vector3.Lerp(startPos, endPos, time);
+                MoveObject.localRotation = Quaternion.Euler(Vector3.Slerp(startRot, endRot, time / RotationTime));
+                MoveObject.localPosition = Vector3.Lerp(startPos, endPos, time / RotationTime);
                 yield return null;
             }
 
