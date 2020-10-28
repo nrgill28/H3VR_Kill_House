@@ -229,7 +229,8 @@ MonoBehaviour:
   m_Script: {fileID: -944068037, guid: 056b7df8ea814154b8e2124f249ec925, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Points: 0
+  IsAntiTarget: 0
+  ShotsRequired: 1
   Rotate: {fileID: 114158592199945876}
 --- !u!114 &114992371098130546
 MonoBehaviour:

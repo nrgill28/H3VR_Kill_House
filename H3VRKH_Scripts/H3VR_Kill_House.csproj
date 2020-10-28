@@ -42,18 +42,25 @@
         <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
           <HintPath>Libs\UnityEngine.dll</HintPath>
         </Reference>
+        <Reference Include="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>A:\Games\SteamLibrary\steamapps\common\H3VR\h3vr_Data\Managed\UnityEngine.UI.dll</HintPath>
+        </Reference>
         <Reference Include="WurstMod, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
           <HintPath>A:\Games\SteamLibrary\steamapps\common\H3VR\BepInEx\plugins\WurstMod.dll</HintPath>
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="MappingComponents\PokeButton.cs" />
+        <Compile Include="MappingComponents\KillHouseScoreboard.cs" />
+        <Compile Include="MappingComponents\KillHouseScoreboardRow.cs" />
         <Compile Include="MappingComponents\KillHouseStage.cs" />
-        <Compile Include="MappingComponents\KillHouseStartButton.cs" />
         <Compile Include="Other\MovableObject.cs" />
         <Compile Include="MappingComponents\KillHouseDoor.cs" />
         <Compile Include="MappingComponents\KillHouseManager.cs" />
         <Compile Include="MappingComponents\KillHouseTarget.cs" />
+        <Compile Include="Other\StageBreakdown.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="RuntimeComponents\PokeButtonReal.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <PropertyGroup>
