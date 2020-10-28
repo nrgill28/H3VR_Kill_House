@@ -61,6 +61,7 @@
         <Compile Include="Other\StageBreakdown.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="RuntimeComponents\PokeButtonReal.cs" />
+        <Compile Include="WurstMod.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <PropertyGroup>

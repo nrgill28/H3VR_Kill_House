@@ -5694,7 +5694,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneName: H3 Kill House
   Author: nrgill28
-  Gamemode: h3vr.sandbox
+  Gamemode: nrgill28.kill_house
   Description: 'Welcome to the Kill House sample map.
 
     Your task is simple; eliminate all the targets as fast as possible!'
