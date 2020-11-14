@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace H3VR_Kill_House.Classes
+namespace H3_Shoothouse.Classes
 {
     public class MovableObject : MonoBehaviour
     {

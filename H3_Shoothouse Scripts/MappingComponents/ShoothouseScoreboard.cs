@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using H3VR_Kill_House.Classes;
+using H3_Shoothouse.Classes;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace H3VR_Kill_House.MappingComponents
+namespace H3_Shoothouse.MappingComponents
 {
-    public class KillHouseScoreboard : MonoBehaviour
+    public class ShoothouseScoreboard : MonoBehaviour
     {
         public GameObject StageRowPrefab;
         public GameObject StageRowParent;
@@ -24,7 +24,7 @@ namespace H3VR_Kill_House.MappingComponents
             {
                 // Instantiate it and take a reference to the reference holder
                 var row = Instantiate(StageRowPrefab, StageRowParent.transform);
-                var components = row.GetComponent<KillHouseScoreboardRow>();
+                var components = row.GetComponent<ShoothouseScoreboardRow>();
 
                 // Set all the values
                 components.ScoreText.text = $"{stage.Score}";

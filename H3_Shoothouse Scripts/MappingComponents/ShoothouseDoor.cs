@@ -1,10 +1,10 @@
-﻿using H3VR_Kill_House.Classes;
+﻿using H3_Shoothouse.Classes;
 using UnityEngine;
 
-namespace H3VR_Kill_House.MappingComponents
+namespace H3_Shoothouse.MappingComponents
 {
     [RequireComponent(typeof(MovableObject))]
-    public class KillHouseDoor : MonoBehaviour
+    public class ShoothouseDoor : MonoBehaviour
     {
         public MovableObject Move;
 

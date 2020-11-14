@@ -1,12 +1,12 @@
 ﻿using System;
 using FistVR;
-using H3VR_Kill_House.Classes;
+using H3_Shoothouse.Classes;
 using UnityEngine;
 using WurstMod.MappingComponents;
 
-namespace H3VR_Kill_House.MappingComponents
+namespace H3_Shoothouse.MappingComponents
 {
-    public class KillHouseTarget : MonoBehaviour
+    public class ShoothouseTarget : MonoBehaviour
     {
         [Tooltip("Should the player shoot this target it avoid it?")]
         public bool IsAntiTarget;
@@ -47,7 +47,7 @@ namespace H3VR_Kill_House.MappingComponents
             
             // Else tell the manager we're hit and close
             _active = false;
-            KillHouseManager.Instance.TargetHit(this);
+            ShoothouseManager.Instance.TargetHit(this);
             Rotate.MoveTo(1f);
             
             // Play the audio clip too

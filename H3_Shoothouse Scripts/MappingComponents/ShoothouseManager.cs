@@ -1,22 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using H3VR_Kill_House.Classes;
+using H3_Shoothouse.Classes;
 using UnityEngine;
-using UnityEngine.Events;
 
-namespace H3VR_Kill_House.MappingComponents
+namespace H3_Shoothouse.MappingComponents
 {
-    public class KillHouseManager : MonoBehaviour
+    public class ShoothouseManager : MonoBehaviour
     {
-        public static KillHouseManager Instance;
+        public static ShoothouseManager Instance;
 
         // Unity variables
-        public KillHouseStage[] Stages;
+        public ShoothouseStage[] Stages;
 
         // The doors for the start room
-        public KillHouseDoor StartRoomEntranceDoor;
-        public KillHouseDoor StartRoomExitDoor;
+        public ShoothouseDoor StartRoomEntranceDoor;
+        public ShoothouseDoor StartRoomExitDoor;
         public GameObject StartButton;
         public GameObject EndButton;
 
@@ -25,14 +24,14 @@ namespace H3VR_Kill_House.MappingComponents
 
         [Header("Scoring")]
         // Scoring curve
-        public KillHouseScoreboard Scoreboard;
+        public ShoothouseScoreboard Scoreboard;
 
         public AnimationCurve ScoreCurve;
         public int TargetScore;
         public int AntiTargetScore;
 
         private int _currentStage;
-        private List<KillHouseTarget> _stageTargets;
+        private List<ShoothouseTarget> _stageTargets;
         private float _stageTimer = 0f;
         private float _timer = 0f;
 
@@ -46,7 +45,7 @@ namespace H3VR_Kill_House.MappingComponents
 
         private void Start()
         {
-            _stageTargets = new List<KillHouseTarget>();
+            _stageTargets = new List<ShoothouseTarget>();
             // Reset all the stages
             foreach (var stage in Stages)
             {
@@ -158,7 +157,7 @@ namespace H3VR_Kill_House.MappingComponents
         }
 
         // This is called by the targets when they're hit
-        public void TargetHit(KillHouseTarget target)
+        public void TargetHit(ShoothouseTarget target)
         {
             // Remove it from the active list
             _stageTargets.Remove(target);

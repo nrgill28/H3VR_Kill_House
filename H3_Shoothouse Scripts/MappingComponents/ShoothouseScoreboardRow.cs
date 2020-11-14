@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace H3VR_Kill_House.MappingComponents
+namespace H3_Shoothouse.MappingComponents
 {
-    public class KillHouseScoreboardRow : MonoBehaviour
+    public class ShoothouseScoreboardRow : MonoBehaviour
     {
         public Text StageName;
         public Text ScoreText;

@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "H3VR_Kill_House", "H3VR_Kill_House.csproj", "{7E66F36E-8809-4FB1-8DAB-1BF073F3F84D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "H3_Shoothouse", "H3_Shoothouse.csproj", "{7E66F36E-8809-4FB1-8DAB-1BF073F3F84D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
