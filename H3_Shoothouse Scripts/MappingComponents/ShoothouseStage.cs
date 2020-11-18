@@ -14,7 +14,5 @@ namespace H3_Shoothouse.MappingComponents
         public ShoothouseDoor ProgressionDoor;
         [Tooltip("The maximum time someone can spend in this stage to receive any score at all")]
         public float ZeroScoreTime;
-        [Tooltip("The time limit for this stage (0 for none)")]
-        public float TimeLimit = 0f;
     }
 }

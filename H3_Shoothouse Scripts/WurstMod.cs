@@ -2,23 +2,26 @@
 using UnityEngine.SceneManagement;
 using WurstMod.MappingComponents.Generic;
 using WurstMod.Runtime;
+using WurstMod.Runtime.SceneLoaders;
 using WurstMod.SceneLoaders;
 using WurstMod.UnityEditor;
 using WurstMod.UnityEditor.SceneExporters;
 
 namespace H3_Shoothouse
 {
-    // Yeah we don't do anything special here so...
-    [CustomSceneLoader("nrgill28.shoot_house")]
-    public class ShoothouseLoader : SandboxSceneLoader
+    // Loader. Tells WurstMod how to load this game mode.
+    // It's got a number of overridable methods but we don't do anything special.
+    public class ShoothouseLoader : CustomSceneLoader
     {
-        
+        public override string GamemodeId => "nrgill28.shoot_house";
+        public override string BaseScene => "ProvingGround";
     }
 
     // Extend from the sandbox exporter since it's pretty much just that with a could extra validations
-    [SceneExporter("nrgill28.shoot_house")]
     public class ShoothouseExporter : SandboxExporter
     {
+        public override string GamemodeId => "nrgill28.shoot_house";
+
         public override void Validate(Scene scene, CustomScene root, ExportErrors err)
         {
             // Let base validate
@@ -26,7 +29,7 @@ namespace H3_Shoothouse
             
             RequiredComponents<ShoothouseManager>(1, 1);
             RequiredComponents<ShoothouseStage>(1, int.MaxValue);
-            RequiredComponents<ShoothouseScoreboard>(1, 1);
+            //RequiredComponents<ShoothouseScoreboard>(1, 1);
         }
     }
 }

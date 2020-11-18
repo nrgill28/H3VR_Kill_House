@@ -14,10 +14,8 @@ namespace H3_Shoothouse.MappingComponents
         public ShoothouseStage[] Stages;
 
         // The doors for the start room
-        public ShoothouseDoor StartRoomEntranceDoor;
-        public ShoothouseDoor StartRoomExitDoor;
+        public ShoothouseDoor StartDoor;
         public GameObject StartButton;
-        public GameObject EndButton;
 
         // Audio clip for countdown
         public float CountdownLength;
@@ -54,8 +52,7 @@ namespace H3_Shoothouse.MappingComponents
             }
 
             // Close the start room exit door and open the start room entrance door
-            StartRoomExitDoor.Close();
-            StartRoomEntranceDoor.Open();
+            if (StartDoor) StartDoor.Close();
 
             // Initialize 
             StartButton.SendMessage("Reset");
@@ -116,8 +113,7 @@ namespace H3_Shoothouse.MappingComponents
             // Open the door and start the first stage
             _timer = 0f;
             _breakdown = new StageBreakdown[Stages.Length];
-            StartRoomExitDoor.Open();
-            EndButton.SendMessage("Reset");
+            if (StartDoor) StartDoor.Open();
             NextStage();
         }
 
@@ -125,7 +121,6 @@ namespace H3_Shoothouse.MappingComponents
         {
             if (_currentStage != -1) return;
             StartCoroutine(Countdown());
-            StartRoomEntranceDoor.Close();
         }
 
         private void Update()
@@ -136,9 +131,6 @@ namespace H3_Shoothouse.MappingComponents
             // Keep track of the time taken
             _stageTimer += Time.deltaTime;
             _timer += Time.deltaTime;
-
-            // If we've exceeded the time limit on the current stage, continue to the next regardless of targets
-            if (Stages[_currentStage].TimeLimit > 0 && _stageTimer > Stages[_currentStage].TimeLimit) NextStage();
         }
 
         private IEnumerator Countdown()
@@ -152,7 +144,7 @@ namespace H3_Shoothouse.MappingComponents
         {
             if (_currentStage == -1) return;
             _currentStage = -1;
-            Scoreboard.UpdateScoreboard(_breakdown, _timer);
+            if (Scoreboard) Scoreboard.UpdateScoreboard(_breakdown, _timer);
             Start();
         }
 

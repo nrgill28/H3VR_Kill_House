@@ -5,41 +5,48 @@ namespace H3_Shoothouse.Classes
 {
     public class MovableObject : MonoBehaviour
     {
-        public Transform MoveObject;
-        public Vector3 EndRotation;
-        public Vector3 EndPosition;
-        private Vector3 _startRotation;
-        private Vector3 _startPosition;
-        public float RotationTime = 0.2f;
+        public Vector3 PositionOffset;
+        public Vector3 RotationOffset;
+        public float Duration = 0.2f;
 
-        private void Start()
+        private Vector3 _startPosition;
+        private Quaternion _startRotation;
+        private Vector3 _endPosition;
+        private Quaternion _endRotation;
+        
+        private void Awake()
         {
-            // When the map loads we want to fold the target down and make it inactive
-            _startRotation = MoveObject.localRotation.eulerAngles;
-            _startPosition = MoveObject.localPosition;
+            _startPosition = transform.localPosition;
+            _startRotation = transform.localRotation;
+            _endRotation = _startRotation * Quaternion.Euler(RotationOffset);
+            _endPosition = _startPosition + PositionOffset;
         }
 
         public void MoveTo(float t)
         {
-            StartCoroutine(SlerpTransformTo(Vector3.Slerp(_startRotation, EndRotation, t), Vector3.Lerp(_startPosition, EndPosition, t), RotationTime));
+            var targetPos = Vector3.Lerp(_startPosition, _endPosition, t);
+            var targetRot = Quaternion.Slerp(_startRotation, _endRotation, t);
+            StartCoroutine(LerpTransformTo(targetPos, targetRot, Duration));
         }
 
         // This is a helper function to rotate the target
-        private IEnumerator SlerpTransformTo(Vector3 endRot, Vector3 endPos, float t)
+        private IEnumerator LerpTransformTo(Vector3 pos, Quaternion rot, float t)
         {
-            var startRot = MoveObject.localRotation.eulerAngles;
-            var startPos = MoveObject.localPosition;
-            var time = 0f;
-            while (time < t)
+            var elapsed = 0f;
+            var startPos = transform.localPosition;
+            var startRot = transform.localRotation;
+
+            while (elapsed < t)
             {
-                time += Time.deltaTime;
-                MoveObject.localRotation = Quaternion.Euler(Vector3.Slerp(startRot, endRot, time / RotationTime));
-                MoveObject.localPosition = Vector3.Lerp(startPos, endPos, time / RotationTime);
+                elapsed += Time.deltaTime;
+                transform.localPosition = Vector3.Lerp(startPos, pos, elapsed / t);
+                transform.localRotation = Quaternion.Slerp(startRot, rot, elapsed / t);
                 yield return null;
             }
 
-            MoveObject.localRotation = Quaternion.Euler(endRot);
-            MoveObject.localPosition = endPos;
+            // Set these at the end just in case they're slightly off
+            transform.localPosition = pos;
+            transform.localRotation = rot;
         }
     }
 }
