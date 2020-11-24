@@ -9,8 +9,7 @@ namespace H3_Shoothouse.MappingComponents
     {
         public GameObject StageRowPrefab;
         public GameObject StageRowParent;
-        public Text FinalScoreText;
-        public Text FinalTimeText;
+        public Text FinalText;
 
         public void UpdateScoreboard(StageBreakdown[] breakdown, float totalTime)
         {
@@ -27,11 +26,11 @@ namespace H3_Shoothouse.MappingComponents
                 var components = row.GetComponent<ShoothouseScoreboardRow>();
 
                 // Set all the values
-                components.ScoreText.text = $"{stage.Score}";
-                components.StageName.text = $"Stage {stage.StageNumber}: {stage.StageName}";
-                components.TimeText.text = $" {stage.TimeTaken:##.000} s";
-                components.TargetText.text = $"x {stage.TargetsHit}";
-                components.AntiTargetText.text = $"x {stage.AntiTargetsHit}";
+                if (components.ScoreText) components.ScoreText.text = $"{stage.Score}";
+                if (components.StageName) components.StageName.text = $"Stage {stage.StageNumber}: {stage.StageName}";
+                if (components.TimeText) components.TimeText.text = $" {stage.TimeTaken:##.000}s";
+                if (components.TargetText) components.TargetText.text = $"x{stage.TargetsHit}";
+                if (components.AntiTargetText) components.AntiTargetText.text = $"x{stage.AntiTargetsHit}";
                 
                 // Then move it down a bit
                 var rectTransform = row.GetComponent<RectTransform>();
@@ -50,8 +49,7 @@ namespace H3_Shoothouse.MappingComponents
             finalScore -= (int) (timeDelta * 50f);
             
             // Lastly update the final score
-            FinalScoreText.text = $"{finalScore}";
-            FinalTimeText.text = $"{totalTime:##.000} s";
+            FinalText.text = $"Time: <color=blue>{totalTime:##.000}</color>  Score: <color=blue>{finalScore:N0}</color>";
         }
     }
 }

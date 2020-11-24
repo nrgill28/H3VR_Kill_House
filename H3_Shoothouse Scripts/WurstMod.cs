@@ -1,4 +1,5 @@
 ﻿using H3_Shoothouse.MappingComponents;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using WurstMod.MappingComponents.Generic;
 using WurstMod.Runtime;
@@ -11,10 +12,15 @@ namespace H3_Shoothouse
 {
     // Loader. Tells WurstMod how to load this game mode.
     // It's got a number of overridable methods but we don't do anything special.
-    public class ShoothouseLoader : CustomSceneLoader
+    public class ShoothouseLoader : SandboxSceneLoader
     {
         public override string GamemodeId => "nrgill28.shoot_house";
         public override string BaseScene => "ProvingGround";
+
+        public override void PostLoad()
+        {
+            Debug.Log("Shoothouse!");
+        }
     }
 
     // Extend from the sandbox exporter since it's pretty much just that with a could extra validations
